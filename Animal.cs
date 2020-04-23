@@ -4,25 +4,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_2
+namespace HW_3
 {
     class Animal
     {
+        //------static fields------
+        //healthAnimalsCounter:
+        public static int healthAnimalsCounter;
+        public static void ClearHealthAnimalCounter() { healthAnimalsCounter = 0; }  // switch public static**
+        public static void ShowHealthAnimalCounter() { Console.WriteLine(healthAnimalsCounter); }
+        //sickAnimalsCounter
+        public static int sickAnimalsCounter;
+        public static void ClearSickAnimalsCounter() { sickAnimalsCounter = 0; }     //**
+        public static void ShowSickAnimalsCounter() { Console.WriteLine(sickAnimalsCounter); }
+
         //------data fields-------
         uint code;
         string name;
         char kind; // M or F
         float weight; // 0-150 kg
         bool isSea; // if it water animal
+        int position; //potision in the line
+        bool urgent; //urgency
+
 
         //------constructors------
-        public Animal(uint code, string name, char kind, float weight, bool isSea)
+        public Animal(uint code, string name, char kind, float weight, bool isSea, int position, bool urgent)
         {
             SetCode(code);
             SetName(name);
             SetKind(kind);
             SetWeight(weight);
             SetIsSea(isSea);
+            SetPosition(position);
+            SetUrgent(urgent);
         }
 
         //-------methods-------
@@ -60,6 +75,14 @@ namespace Task_2
         {
             this.isSea = isSea;
         }
+        public void SetPosition(int position)
+        {
+            this.position = position;
+        }
+        public void SetUrgent (bool urgent)
+        {
+            this.urgent = urgent;
+        }
         //gets:
         public uint GetCode()
         {
@@ -81,10 +104,18 @@ namespace Task_2
         {
             return isSea;
         }
+        public int GetPosition()
+        {
+            return position;
+        }
+        public bool GetUrgent()
+        {
+            return urgent;
+        }
         //print info:
         public void printAnimalInfo()
         {
-            Console.WriteLine("Animal -\nCode:" + code + "\nName:" + name + "\nKind:" + kind + "\nWeight:" + weight + "\nWater Animal:" + isSea);
+            Console.WriteLine("Animal -\nCode:" + code + "\nName:" + name + "\nKind:" + kind + "\nWeight:" + weight + "\nWater Animal:" + isSea + "\nPosition in the line:" + position + "\nIt is urgent:" + urgent);
         }
     }
 }
