@@ -1,0 +1,3 @@
+C:\Users\kfirg\OneDrive - Ruppin Academic Center\מונחה עצמים C#\מטלות בית\מטלה 3 עד 5.3\HW_3\HW_3\obj\Debug\netcoreapp3.0\HW_3.csprojAssemblyReference.cache
+C:\Users\kfirg\OneDrive - Ruppin Academic Center\מונחה עצמים C#\מטלות בית\מטלה 3 עד 5.3\HW_3\HW_3\obj\Debug\netcoreapp3.0\HW_3.AssemblyInfoInputs.cache
+C:\Users\kfirg\OneDrive - Ruppin Academic Center\מונחה עצמים C#\מטלות בית\מטלה 3 עד 5.3\HW_3\HW_3\obj\Debug\netcoreapp3.0\HW_3.AssemblyInfo.cs
