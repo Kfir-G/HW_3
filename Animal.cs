@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW_3
 {
+    enum Kind { Male,Female };
     class Animal
     {
         //------static fields------
@@ -41,7 +42,6 @@ namespace HW_3
         }
 
         //-------methods-------
-
         //sets:
         public void SetCode(uint code)
         {
