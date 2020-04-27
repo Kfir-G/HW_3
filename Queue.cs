@@ -7,14 +7,14 @@ namespace HW_3
     class Queue
     {
         //--------data fields--------
-        Queue <Animal> Animals; // queue array of animals
-        int emptyCell; //index of empty cell
+        Animal [] healthAnimals; // queue array of animals
+        int emptyCell; //index of empty cell  =0?
 
         //---------constructors---------
         public Queue(int sizeArr)
         {
             emptyCell = 0;
-            Animals = new Queue <Animal>(sizeArr);
+            this.healthAnimals = new Animal[sizeArr];
         }
         public Queue () :this(1)
         {
@@ -22,16 +22,49 @@ namespace HW_3
         }
 
         //----------methods------------
-        public void Enqueue(Queue <Animal> Animals, int emptyCell)
+        public bool IsEmpty()
         {
-           if(emptyCell<0 || Animals.Count<emptyCell) //check if Animals is full
+            if (emptyCell == 0)
+                return true;
+            return false;
+        }
+        public bool IsFull()
+        {
+            if (emptyCell >= healthAnimals.Length)
+                return true;
+            return false;
+        }
+        public int GetLastPos()
+        {
+            return emptyCell;
+        }
+        public void SetDownAllAnimalPos()
+        {
+            for (int i = 0; i < GetLastPos(); i++)
+                healthAnimals[i].SetPosition(i - 1);
+        }
+        public void Enqueue(Animal[] heakthAnimals, ref int emptyCell, Animal temp)
+        {
+           if(IsEmpty()==false) 
            {
                 Console.WriteLine("The queue is FULL");
                 return;
            }
-            Animals[emptyCell] = new Animal(); //---?----
+            healthAnimals[emptyCell] = temp; 
             emptyCell++;
             return;
+        }
+        public Animal Dequeue () 
+        {
+            if (IsEmpty())
+                return null;
+            Animal animalTemp = healthAnimals[0];
+            for (int i = 0; i < GetLastPos() - 1; i++)
+                healthAnimals[i] = healthAnimals[i + 1];
+            SetDownAllAnimalPos();
+            //Animal.helth_anim--;
+            emptyCell--;
+            return animalTemp;
         }
     }
 }

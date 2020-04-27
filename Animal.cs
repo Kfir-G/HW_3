@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HW_3
 {
-    enum Kind { Male,Female };
+    enum Kind { Male,Female };  //?????????get&set
     class Animal
     {
         //------static fields------

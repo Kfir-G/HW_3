@@ -7,6 +7,9 @@ namespace HW_3
     {
         static void Main(string[] args)
         {
+            Animal[] animals = new Animal[2];
+            animals[0]= { 1, hipo, F, 10, T, 0, false};
+            /*
             MenuAnimal menuChoice;
             Service service = new Service();
             do
@@ -203,6 +206,7 @@ namespace HW_3
             Console.WriteLine("\t4 - Print Animals By IsSea");//4
             Console.WriteLine("\t5 - Print Animals Above 10kg and King is Female");//5
             Console.WriteLine("\t6 - Exit");//6
+            */
         }
     }
 }
