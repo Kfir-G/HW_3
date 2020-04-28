@@ -7,14 +7,14 @@ namespace HW_3
     class Queue
     {
         //--------data fields--------
-        Animal [] healthAnimals; // queue array of animals
+        Animal [] HealthAnimals; // queue array of animals
         int emptyCell; //index of empty cell  =0?
 
         //---------constructors---------
         public Queue(int sizeArr)
         {
             emptyCell = 0;
-            this.healthAnimals = new Animal[sizeArr];
+            this.HealthAnimals = new Animal[sizeArr];
         }
         public Queue () :this(1)
         {
@@ -30,7 +30,7 @@ namespace HW_3
         }
         public bool IsFull()
         {
-            if (emptyCell >= healthAnimals.Length)
+            if (emptyCell >= HealthAnimals.Length)
                 return true;
             return false;
         }
@@ -38,10 +38,10 @@ namespace HW_3
         {
             return emptyCell;
         }
-        public void SetDownAllAnimalPos()
+        public void SetDownAllPos()
         {
             for (int i = 0; i < GetLastPos(); i++)
-                healthAnimals[i].SetPosition(i - 1);
+                HealthAnimals[i].SetPosition(i - 1);
         }
         public void Enqueue(Animal[] heakthAnimals, ref int emptyCell, Animal temp)
         {
@@ -50,21 +50,26 @@ namespace HW_3
                 Console.WriteLine("The queue is FULL");
                 return;
            }
-            healthAnimals[emptyCell] = temp; 
+            HealthAnimals[emptyCell] = temp; 
             emptyCell++;
             return;
         }
-        public Animal Dequeue () 
+        public Animal Dequeue() 
         {
             if (IsEmpty())
                 return null;
-            Animal animalTemp = healthAnimals[0];
+            Animal animalTemp = HealthAnimals[0];
             for (int i = 0; i < GetLastPos() - 1; i++)
-                healthAnimals[i] = healthAnimals[i + 1];
-            SetDownAllAnimalPos();
+                HealthAnimals[i] = HealthAnimals[i + 1];
+            SetDownAllPos();
             //Animal.helth_anim--;
             emptyCell--;
             return animalTemp;
+        }
+        public void PrintQueue()
+        {
+            foreach (Animal animal in HealthAnimals)
+                animal.printAnimalInfo();
         }
     }
 }
