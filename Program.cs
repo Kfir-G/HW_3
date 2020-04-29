@@ -7,9 +7,6 @@ namespace HW_3
     {
         static void Main(string[] args)
         {
-            Animal[] animals = new Animal[2];
-            animals[0]= { 1, hipo, F, 10, T, 0, false};
-            /*
             MenuAnimal menuChoice;
             Service service = new Service();
             do
@@ -70,10 +67,11 @@ namespace HW_3
             } while (menuChoice != MenuAnimal.EXIT);
 
         }
+
         //-----functions-----
         static Animal addNewAnimal()
         {
-            uint code; string name; float weight; char kind, t; bool isSea;
+            uint code; string name; float weight; char kind, t; bool isSea, urgent; int position;
             Console.WriteLine("\tAdd new animal:");
             Console.WriteLine("Insert code number:");
             code = uint.Parse(Console.ReadLine());
@@ -93,7 +91,10 @@ namespace HW_3
                 if (t != 'N')
                     Console.WriteLine("Worng input");
             }
-            return new Animal(code, name, kind, weight, isSea);
+            Console.WriteLine("Enter if it is urgent");
+            urgent = bool.Parse(Console.ReadLine());
+            position = -1;                              //defualt
+            return new Animal(code, name, kind, weight, isSea, position, urgent);
         }
         static Animal findAnimalByCode(Animal[] arr, uint code)
         {
@@ -196,7 +197,7 @@ namespace HW_3
                 }
             }
         }
-        static void ShowMenu()
+        /*static void ShowMenu()
         {
             Console.WriteLine("Hello Manager\n*\n*\n*");
             Console.WriteLine("Animal Manager");
@@ -206,7 +207,6 @@ namespace HW_3
             Console.WriteLine("\t4 - Print Animals By IsSea");//4
             Console.WriteLine("\t5 - Print Animals Above 10kg and King is Female");//5
             Console.WriteLine("\t6 - Exit");//6
-            */
-        }
+        }*/
     }
 }
