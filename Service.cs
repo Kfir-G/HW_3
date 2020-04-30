@@ -6,6 +6,7 @@ namespace HW_3
 {
     class Service
     {
+        //Animal animalTemp;
         const int SIZE = 10;
         
         //------data fields------

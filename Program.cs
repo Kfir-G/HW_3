@@ -2,13 +2,11 @@
 
 namespace HW_3
 {
-    enum MenuAnimal { ADD_ANIMAL, TAKE_CARE, PRINT, EXIT };
+    enum MenuAnimal { ADD_ANIMAL=1, TAKE_CARE, PRINT, EXIT };
     class Program
     {
         static void Main(string[] args)
         {
-            Queue queue = new Queue(10);
-            Stack stack = new Stack(10);
             MenuAnimal menuChoice;
             Service service = new Service();
             do
@@ -68,128 +66,6 @@ namespace HW_3
                 Console.ReadLine();
             } while (menuChoice != MenuAnimal.EXIT);
 
-        }
-
-        //-----functions-----
-        static Animal AddNewAnimal()
-        {
-            uint code; string name; float weight; char kind, t; bool isSea, urgent; int position;
-            Console.WriteLine("\tAdd new animal:");
-            Console.WriteLine("Insert code number:");
-            code = uint.Parse(Console.ReadLine());
-            Console.WriteLine("Insert name:");
-            name = Console.ReadLine();
-            Console.WriteLine("Insert weight number:");
-            weight = float.Parse(Console.ReadLine());
-            Console.WriteLine("The kind animal is Female?-press F\nThe kind animal is Male ? -prees M");
-            kind = char.Parse(Console.ReadLine());
-            Console.WriteLine("The animal live in water?-press Y\nother - press N");
-            t = char.Parse(Console.ReadLine());
-            if (t == 'Y')
-                isSea = true;
-            else
-            {
-                isSea = false;
-                if (t != 'N')
-                    Console.WriteLine("Worng input");
-            }
-            Console.WriteLine("Enter if it is urgent Y/N");
-            t = char.Parse(Console.ReadLine());
-            if (t == 'Y')
-                urgent = true;
-            else
-            {
-                urgent = false;
-                if (t != 'N')
-                    Console.WriteLine("Worng input");
-            }
-            Console.WriteLine("Insert The position:");
-            position = int.Parse(Console.ReadLine());                     
-            return new Animal(code, name, kind, weight, isSea, position, urgent);
-        }
-        static Animal FindAnimalByCode(Animal[] arr, uint code)
-        {
-            if (arr[0] == null)
-            {
-                Console.WriteLine("There's no animals");
-                return null; ;
-            }
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i] == null)
-                {
-                    Console.WriteLine("Did NOT find");
-                    return null;
-                }
-                if (arr[i].GetCode() == code)
-                {
-                    arr[i].PrintAnimalInfo();
-                    return arr[i];
-                }
-            }
-            Console.WriteLine("Did NOT find");
-            return null; //the code dont match to any animal's code
-        }
-        static bool EditAnimal(Animal[] arr, uint code)
-        {
-            if (arr[0] == null)
-            {
-                Console.WriteLine("There's no animals");
-                return false;
-            }
-            char tempIsSea;
-            Animal temp = FindAnimalByCode(arr, code);
-            if (temp is null)
-            {
-                Console.WriteLine("The animal does not exist");
-                return false;
-            }
-            Console.WriteLine("Insert animal new information except kind");
-            temp.SetCode(uint.Parse(Console.ReadLine()));
-            temp.SetName(Console.ReadLine());
-            temp.SetWeight(float.Parse(Console.ReadLine()));
-            tempIsSea = char.Parse(Console.ReadLine());
-            if (tempIsSea == 'Y')
-                temp.SetIsSea(true);
-            else
-                temp.SetIsSea(false);
-            return true;
-        }
-        static void PrintAnimalByIsSea(Animal[] arr)
-        {
-            if (arr[0] == null)
-            {
-                Console.WriteLine("There's no animals");
-                return;
-            }
-            string[] temp = new string[arr.Length + 1]; // array of water animal
-            int idxTemp = 0, j;
-            bool check = true;
-            Console.WriteLine("-------------------------------------------------------------\nThe water animals:");
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i] == null)
-                    return;
-                if (arr[i].GetIsSea() == true)
-                {
-                    for (j = 0; j <= idxTemp; j++)
-                    {
-                        if (arr[i].GetName() == temp[j])
-                        {
-                            check = false;
-                            j = idxTemp;
-                        }
-                    }
-                    if (check == true)
-                    {
-                        arr[i].PrintAnimalInfo();
-                        Console.WriteLine("----------------------------");
-                        temp[idxTemp] = arr[i].GetName();
-                        idxTemp++;
-                    }
-                }
-                check = true;
-            }
         }
     }     
 }
