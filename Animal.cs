@@ -115,7 +115,7 @@ namespace HW_3
             return urgent;
         }
         //print info:
-        public void printAnimalInfo()
+        public void PrintAnimalInfo()
         {
             Console.WriteLine("Animal -\nCode:" + code + "\nName:" + name + "\nKind:" + kind + "\nWeight:" + weight + "\nWater Animal:" + isSea + "\nPosition in the line:" + position + "\nIt is urgent:" + urgent);
         }

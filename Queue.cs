@@ -7,7 +7,7 @@ namespace HW_3
     class Queue
     {
         //--------data fields--------
-        Animal [] HealthAnimals; // queue array of animals
+        readonly Animal [] HealthAnimals; // queue array of animals
         int emptyCell; //index of empty cell  =0?
 
         //---------constructors---------
@@ -22,6 +22,10 @@ namespace HW_3
         }
 
         //----------methods------------
+        public Animal GetHealth(int idx)
+        {
+            return HealthAnimals[idx];
+        }
         public bool IsEmpty()
         {
             if (emptyCell == 0)
@@ -43,7 +47,7 @@ namespace HW_3
             for (int i = 0; i < GetLastPos(); i++)
                 HealthAnimals[i].SetPosition(i - 1);
         }
-        public void Enqueue(Animal[] heakthAnimals, ref int emptyCell, Animal temp)
+        public void Enqueue(Animal temp)
         {
            if(IsEmpty()==false) 
            {
@@ -69,7 +73,7 @@ namespace HW_3
         public void PrintQueue()
         {
             foreach (Animal animal in HealthAnimals)
-                animal.printAnimalInfo();
+                animal.PrintAnimalInfo();
         }
     }
 }

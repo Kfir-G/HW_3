@@ -25,7 +25,7 @@ namespace HW_3
                     case MenuAnimal.ADD_ANIMAL: // Add New animal
                         {
                             Console.WriteLine("\n\t Add New Animal ");
-                            service.addNewAnimal();
+                            service.AddNewAnimal();
                             break;
                         }
                     case MenuAnimal.TAKE_CARE: // take care next animal
@@ -40,7 +40,7 @@ namespace HW_3
                             if (ani != null)
                             {
                                 Console.WriteLine("Take care of animal:");
-                                ani.printAnimalInfo();
+                                ani.PrintAnimalInfo();
                             }
                             else
                                 Console.WriteLine("\n\t - There are no waiting animals in list");
@@ -51,9 +51,9 @@ namespace HW_3
                         Console.WriteLine("Regular animal list - press R\nUrgent animal list - press U");
                         char type = char.Parse(Console.ReadLine());
                         if (type == 'R')
-                            service.printRegularAnimals();
+                            service.PrintRegularAnimals();
                         else
-                            service.printUrgentAnimals();
+                            service.PrintUrgentAnimals();
                         break;
                     case MenuAnimal.EXIT: // Exit
                         Console.WriteLine("Have a nice day!");
@@ -69,7 +69,7 @@ namespace HW_3
         }
 
         //-----functions-----
-        static Animal addNewAnimal()
+        static Animal AddNewAnimal()
         {
             uint code; string name; float weight; char kind, t; bool isSea, urgent; int position;
             Console.WriteLine("\tAdd new animal:");
@@ -91,12 +91,21 @@ namespace HW_3
                 if (t != 'N')
                     Console.WriteLine("Worng input");
             }
-            Console.WriteLine("Enter if it is urgent");
-            urgent = bool.Parse(Console.ReadLine());
-            position = -1;                              //defualt
+            Console.WriteLine("Enter if it is urgent Y/N");
+            t = char.Parse(Console.ReadLine());
+            if (t == 'Y')
+                urgent = true;
+            else
+            {
+                urgent = false;
+                if (t != 'N')
+                    Console.WriteLine("Worng input");
+            }
+            Console.WriteLine("Insert The position:");
+            position = int.Parse(Console.ReadLine());                     
             return new Animal(code, name, kind, weight, isSea, position, urgent);
         }
-        static Animal findAnimalByCode(Animal[] arr, uint code)
+        static Animal FindAnimalByCode(Animal[] arr, uint code)
         {
             if (arr[0] == null)
             {
@@ -112,7 +121,7 @@ namespace HW_3
                 }
                 if (arr[i].GetCode() == code)
                 {
-                    arr[i].printAnimalInfo();
+                    arr[i].PrintAnimalInfo();
                     return arr[i];
                 }
             }
@@ -127,7 +136,7 @@ namespace HW_3
                 return false;
             }
             char tempIsSea;
-            Animal temp = findAnimalByCode(arr, code);
+            Animal temp = FindAnimalByCode(arr, code);
             if (temp is null)
             {
                 Console.WriteLine("The animal does not exist");
@@ -171,7 +180,7 @@ namespace HW_3
                     }
                     if (check == true)
                     {
-                        arr[i].printAnimalInfo();
+                        arr[i].PrintAnimalInfo();
                         Console.WriteLine("----------------------------");
                         temp[idxTemp] = arr[i].GetName();
                         idxTemp++;
@@ -180,7 +189,7 @@ namespace HW_3
                 check = true;
             }
         }
-        static void PrintAnimalsAbove10AndFemale(Animal[] arr)
+        /*static void PrintAnimalsAbove10AndFemale(Animal[] arr)
         {
             if (arr[0] == null)
             {
@@ -192,11 +201,11 @@ namespace HW_3
             {
                 if (arr[i].GetKind() == 'F' && arr[i].GetWeight() > 10.0)
                 {
-                    arr[i].printAnimalInfo();
+                    arr[i].PrintAnimalInfo();
                     Console.WriteLine("---------------------");
                 }
             }
-        }
+        }*/
         /*static void ShowMenu()
         {
             Console.WriteLine("Hello Manager\n*\n*\n*");

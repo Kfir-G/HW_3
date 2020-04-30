@@ -7,7 +7,7 @@ namespace HW_3
     class Stack
     {
         //-----data fields-----
-        Animal[] SickAnimals;
+        readonly Animal[] SickAnimals;
         int Pionter ;
 
         //-----Constructors----
@@ -22,6 +22,10 @@ namespace HW_3
         }
         
         //-------methods-------
+        public Animal GetSick(int idx)
+        {
+            return SickAnimals[idx];
+        }
         public bool IsEmpty()
         {
             if (SickAnimals[0] == null)
@@ -34,7 +38,7 @@ namespace HW_3
                 return false;
             return true;
         }
-        public int getLastPos()
+        public int GetLastPos()
         {
             return Pionter;
         }
