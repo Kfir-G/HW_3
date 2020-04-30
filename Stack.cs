@@ -7,7 +7,7 @@ namespace HW_3
     class Stack
     {
         //-----data fields-----
-        readonly Animal[] SickAnimals;
+        Animal[] SickAnimals;
         int Pionter ;
 
         //-----Constructors----

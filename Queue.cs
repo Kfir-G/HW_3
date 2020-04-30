@@ -7,7 +7,7 @@ namespace HW_3
     class Queue
     {
         //--------data fields--------
-        readonly Animal [] HealthAnimals; // queue array of animals
+        Animal [] HealthAnimals; // queue array of animals
         int emptyCell; //index of empty cell  =0?
 
         //---------constructors---------
@@ -66,7 +66,6 @@ namespace HW_3
             for (int i = 0; i < GetLastPos() - 1; i++)
                 HealthAnimals[i] = HealthAnimals[i + 1];
             SetDownAllPos();
-            //Animal.helth_anim--;
             emptyCell--;
             return animalTemp;
         }

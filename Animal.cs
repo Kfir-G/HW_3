@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 namespace HW_3
 {
     //eNums:
-    public enum Kind { Male, Female };  //?????????get&set
+    public enum Kind { Male, Female };  
 
     class Animal
     {
         //------static fields------
         //healthAnimalsCounter:
         public static int healthAnimalsCounter;
-        public static void ClearHealthAnimalCounter() { healthAnimalsCounter = 0; }  // switch public static**
+        public static void ClearHealthAnimalCounter() { healthAnimalsCounter = 0; }  
         public static void ShowHealthAnimalCounter() { Console.WriteLine(healthAnimalsCounter); }
         //sickAnimalsCounter
         public static int sickAnimalsCounter;
-        public static void ClearSickAnimalsCounter() { sickAnimalsCounter = 0; }     //**
+        public static void ClearSickAnimalsCounter() { sickAnimalsCounter = 0; }     
         public static void ShowSickAnimalsCounter() { Console.WriteLine(sickAnimalsCounter); }
 
         //------data fields-------

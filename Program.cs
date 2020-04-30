@@ -7,6 +7,8 @@ namespace HW_3
     {
         static void Main(string[] args)
         {
+            Queue queue = new Queue(10);
+            Stack stack = new Stack(10);
             MenuAnimal menuChoice;
             Service service = new Service();
             do
@@ -189,33 +191,5 @@ namespace HW_3
                 check = true;
             }
         }
-        /*static void PrintAnimalsAbove10AndFemale(Animal[] arr)
-        {
-            if (arr[0] == null)
-            {
-                Console.WriteLine("There's no animals");
-                return;
-            }
-            Console.WriteLine("---------------------");
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i].GetKind() == 'F' && arr[i].GetWeight() > 10.0)
-                {
-                    arr[i].PrintAnimalInfo();
-                    Console.WriteLine("---------------------");
-                }
-            }
-        }*/
-        /*static void ShowMenu()
-        {
-            Console.WriteLine("Hello Manager\n*\n*\n*");
-            Console.WriteLine("Animal Manager");
-            Console.WriteLine("\t1 - Add new Animal"); //1
-            Console.WriteLine("\t2 - Find animal by code");//2
-            Console.WriteLine("\t3 - Edit existing animal");//3
-            Console.WriteLine("\t4 - Print Animals By IsSea");//4
-            Console.WriteLine("\t5 - Print Animals Above 10kg and King is Female");//5
-            Console.WriteLine("\t6 - Exit");//6
-        }*/
-    }
+    }     
 }
